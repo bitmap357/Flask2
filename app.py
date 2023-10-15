@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    print(request.args)
     return render_template("form.html")
  
  
