@@ -6,6 +6,10 @@ transaction = []
 @app.route("/")
 def home():
     print(request.form.get("account"))
+    transactions.append((
+        request.form.get("date")
+        
+    ))
     return render_template("form.html")
  
 
