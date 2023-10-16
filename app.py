@@ -10,6 +10,8 @@ def home():
         request.form.get("date"),
         float(request.form.get("amount")),
         request.form.get("account")
+        request.form.get("account")
+
     ))
     return render_template("form.html")
  
