@@ -7,8 +7,9 @@ transaction = []
 def home():
     print(request.form.get("account"))
     transactions.append((
-        request.form.get("date")
-        
+        request.form.get("date"),
+        float(request.form.get("amount")),
+        request.form.get("account")
     ))
     return render_template("form.html")
  
