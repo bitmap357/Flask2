@@ -20,6 +20,6 @@ def home():
     return render_template("form.html")
  
 
-@app.route("/mysite")
-def hello():
+@app.route("/transactions")
+def show_transactions():
     return "Hello World"
