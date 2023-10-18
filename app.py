@@ -7,7 +7,7 @@ transactions = [
     ("2020-08-29", 34.00, "Checking"),
 ]
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
     print(request.form.get("account"))
     transactions.append(
