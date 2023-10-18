@@ -3,6 +3,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 transaction = [
     ("2020-08-25", 70.00, "Checking"),
+    ("2020-08-27", 46.00, "Savings"),
+    ("2020-08-29", 34.00, "Checking"),
 ]
 
 @app.route("/")
