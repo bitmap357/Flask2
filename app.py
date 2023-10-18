@@ -23,4 +23,4 @@ def home():
 
 @app.route("/transactions")
 def show_transactions():
-    return render_template("transactions.html")
+    return render_template("transactions.html", entries=transactions)
