@@ -22,4 +22,4 @@ def home():
 
 @app.route("/transactions")
 def show_transactions():
-    return "Hello World"
+    return render_template("transactions.html")
