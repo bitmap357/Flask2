@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 transaction = [
-    
+    ("2020-08-25", 70.00, "Checking"),
 ]
 
 @app.route("/")
