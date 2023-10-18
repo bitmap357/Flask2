@@ -9,7 +9,7 @@
 <body>
     <h1>Transactions</h1>
     {% for entry in entries %} 
-        {{ entries }}
+        <p>{{ entry[2] }}: {{ entry[1] }} on {{entry[0]}} </p>   
     {% endfor %}
 </body>
 </html>
