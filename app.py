@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-transactions = [
-    ("2020-08-25", 70.00, "Checking"),
-    ("2020-08-27", 46.00, "Savings"),
-    ("2020-08-29", 34.00, "Checking"),
-]
+transactions = []
+POSTGRESQL_URI = "postgres://vpadtlpg:ZxUE-nd_JZGnhoxRp2vWkwA1aKTUdbl9@surus.db.elephantsql.com/vpadtlpg"
 
 @app.route("/", methods=["GET", "POST"])
 def home():
