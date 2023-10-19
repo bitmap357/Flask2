@@ -3,7 +3,10 @@ import psycopg2
 
 app = Flask(__name__)
 transactions = []
+
 POSTGRESQL_URI = "postgres://vpadtlpg:ZxUE-nd_JZGnhoxRp2vWkwA1aKTUdbl9@surus.db.elephantsql.com/vpadtlpg"
+
+connection = psycopg2.connect(POSTGRESQL_URI)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
