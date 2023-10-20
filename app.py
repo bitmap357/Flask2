@@ -8,7 +8,8 @@ POSTGRESQL_URI = "postgres://vpadtlpg:ZxUE-nd_JZGnhoxRp2vWkwA1aKTUdbl9@surus.db.
 
 connection = psycopg2.connect(POSTGRESQL_URI)
 with connection:
-    
+    with connection.cursor() as cursor:
+        
 
 @app.route("/", methods=["GET", "POST"])
 def home():
