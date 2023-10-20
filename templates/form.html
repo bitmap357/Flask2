@@ -7,16 +7,16 @@
         <h1>Add Transaction</h1>
         <form>
             <div class="form__fieldset">
-                <label for="date" class="form__fieldset">Date:</label>
-                <input type="date" name="date" id="date" class="form__fieldset">
+                <label for="date" class="form__label">Date:</label>
+                <input type="date" name="date" id="date" class="form__input">
             </div>
 
             <div class="form__fieldset">
-                <label for="amount" class="form__fieldset">Amount:</label>
-                <input type="number" name="amount" id="amount" class="form__fieldset">
+                <label for="amount" class="form__label">Amount:</label>
+                <input type="number" name="amount" id="amount" class="form__input">
             </div>
             <div class="form__fieldset">
-                <label for="account" class="form__fieldset">Account:</label>
+                <label for="account" class="form__label">Account:</label>
                 <select name="account" id="account" class="form__input form__select">
                     <option value="Checking">Checking</option>
                     <option value="Savings">Savings</option>
@@ -24,7 +24,10 @@
                 </select>
             </div>
             <div class="form__fieldset">
-                <input class="form__submit form__input" type="submit" value="Add Transaction">
+                <input 
+                class="form__submit form__input" 
+                type="submit" 
+                value="Add Transaction">
             </div>
         </form>
     </body>
