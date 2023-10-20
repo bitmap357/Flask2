@@ -18,17 +18,10 @@ def home():
         with connection:
             with connection.cursor() as cursor:
                 cursor.execute("INSERT INTO transactions VALUES (%s, %s, %s);" (
-            request.form.get("date"),
-            float(request.form.get("amount")),
-            request.form.get("account")
-            ))
-        transactions.append(
-            (
-            request.form.get("date"),
-            float(request.form.get("amount")),
-            request.form.get("account")
-            )
-        )
+                request.form.get("date"),
+                float(request.form.get("amount")),
+                request.form.get("account")
+                ))
     return render_template("form.html")
  
 
