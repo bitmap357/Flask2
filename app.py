@@ -8,16 +8,16 @@ POSTGRESQL_URI = "postgres://vpadtlpg:ZxUE-nd_JZGnhoxRp2vWkwA1aKTUdbl9@surus.db.
 connection = psycopg2.connect(POSTGRESQL_URI)
 with connection:
     with connection.cursor() as cursor:
-        cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
+        cursor.execute("CREATE TABLE IF NOT EXISTS transactions (date TEXT, amount REAL, account TEXT);")
 
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        print(request.form.get("account"))
+        print(request.form)
         with connection:
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "INSERT INTO transactions VALUES (%s, %s, %s);" 
+                    "INSERT INTO transactions VALUES (%s, %s, %s);", 
                     (
                     request.form.get("date"),
                     float(request.form.get("amount")),
