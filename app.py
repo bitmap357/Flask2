@@ -17,11 +17,14 @@ def home():
         print(request.form.get("account"))
         with connection:
             with connection.cursor() as cursor:
-                cursor.execute("INSERT INTO transactions VALUES (%s, %s, %s);" (
-                request.form.get("date"),
-                float(request.form.get("amount")),
-                request.form.get("account")
-                ))
+                cursor.execute(
+                    "INSERT INTO transactions VALUES (%s, %s, %s);" 
+                    (
+                    request.form.get("date"),
+                    float(request.form.get("amount")),
+                    request.form.get("account")
+                    )
+                            )
     return render_template("form.html")
  
 
