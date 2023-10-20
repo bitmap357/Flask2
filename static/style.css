@@ -9,6 +9,10 @@ body {
     padding: 20px;
 }
 
+.form__fieldset {
+    padding: 40px 20px;
+}
+
 .form__fieldset:not(:last-of-type) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
