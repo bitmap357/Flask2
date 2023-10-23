@@ -23,18 +23,16 @@ def home():
         print(request.form)
         with connection:
             with connection.cursor() as cursor:
-                try:
-                    cursor.execute(
-                        "INSERT INTO transactions VALUES (%s, %s, %s);", 
-                        (
-                        request.form.get("date"),
-                        float(request.form.get("amount")),
-                        request.form.get("account")
-                        )
-                                )
-                    connection.commit()
-                except Exception as e:
-                   print(f"Error inserting data: {e}")
+                cursor.execute(
+                    "INSERT INTO transactions VALUES (%s, %s, %s);", 
+                    (
+                    request.form.get("date"),
+                    float(request.form.get("amount")),
+                    request.form.get("account")
+                    )
+                            )
+                connection.commit()
+                
     return render_template("form.html")
  
 
