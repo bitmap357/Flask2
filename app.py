@@ -10,12 +10,12 @@ connection = psycopg2.connect(POSTGRESQL_URI)
 # if connection.is_closed():
 #     print("The connection is closed.")
 # else:
-try: 
-    with connection:
-        with connection.cursor() as cursor:
-            cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
-except psycopg2.errors.DuplicateTable:
-    pass
+# try: 
+with connection:
+    with connection.cursor() as cursor:
+        cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
+# except psycopg2.errors.DuplicateTable:
+#     pass
 
 @app.route("/", methods=["GET", "POST"])
 def home():
