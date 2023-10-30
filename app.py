@@ -34,7 +34,7 @@ def home():
 @app.route("/transactions")
 def show_transactions():
     with sqlite3.connect('database.db') as conn:
-        with conn.cursor() as cursor:
-            cursor.execute("SELECT * FROM transactions;")
-            transactions = cursor.fetchall()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM transactions;")
+        transactions = cursor.fetchall()
     return render_template("transactions.jinja2", entries=transactions)
