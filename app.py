@@ -9,12 +9,11 @@ conn = sqlite3.connect('database.db')
 # if connection.is_closed():
 #     print("The connection is closed.")
 # else:
-try: 
-    with conn:
-        with conn.cursor() as cursor:
-            cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
-except sqlite3.errors.DuplicateTable:
-    pass
+
+with conn:
+    with conn.cursor() as cursor:
+        cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
