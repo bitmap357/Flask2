@@ -11,9 +11,8 @@ conn = sqlite3.connect('database.db')
 # else:
 
 with conn:
-    with conn.cursor() as cursor:
-        cursor.execute("CREATE TABLE transactions (date TEXT, amount REAL, account TEXT);")
-
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS transactions (date TEXT, amount REAL, account TEXT);")
 
 @app.route("/", methods=["GET", "POST"])
 def home():
