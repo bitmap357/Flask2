@@ -37,8 +37,8 @@ def home():
 
 @app.route("/transactions")
 def show_transactions():
-    with psycopg2.connect(POSTGRESQL_URI) as connection:
-        with connection.cursor() as cursor:
+    with sqlite3.connect('database.db') as conn:
+        with conn.cursor() as cursor:
             cursor.execute("SELECT * FROM transactions;")
             transactions = cursor.fetchall()
     return render_template("transactions.jinja2", entries=transactions)
