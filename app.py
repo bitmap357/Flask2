@@ -13,22 +13,20 @@ conn = sqlite3.connect('database.db')
 with conn:
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS transactions (date TEXT, amount REAL, account TEXT);")
+    
 
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
         print(request.form)
         with conn:
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    "INSERT INTO transactions VALUES (%s, %s, %s);", 
-                    (
-                    request.form.get("date"),
-                    float(request.form.get("amount")),
-                    request.form.get("account")
-                    )
-                            )
-                conn.commit()
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO transactions VALUES (?, ?, ?);", (
+                request.form.get("date"),
+                float(request.form.get("amount")),
+                request.form.get("account")
+            ))
+        conn.commit()
                 
     return render_template("form.html")
  
